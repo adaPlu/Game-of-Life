@@ -46,26 +46,7 @@ GameOfLife::GameOfLife(int height, int width){
 		}
 		board.push_back(inputV);	
 	}
-	/*
-	for(int i = 0; i < height; i++){
-		for(int j = 0; j < width; j++){
-			
-			if(i == 2 && (j == 1 || j == 2 ||  j == 3)){	
-				board[i][j].makeAlive();
-			}
-			
-			if( (i == 7 || i == 8 || i == 9) && (j == 2) || ((i == 7) && (j == 1)) ||((i == 8) && (j == 0))){	
-				board[i][j].makeAlive();
-			}
-			
-		
-			if(i == 7 && (j == 7 || j == 8 ||  j == 9)){	
-				board[i][j].makeAlive();
-			}
-			
-		}
-	}
-	*/
+	
 }
 
 
@@ -92,98 +73,25 @@ void GameOfLife::advance(){
 			neighbors = 0;
 			//Edge Cases
 			//Top Edge
-			if(i == 0 && j > 0 && j < width){
-				
-					for(int k = 0; k <= 1; k++){
-	        			for(int l = -1; l <= 1; l++){
-							if(board[i + k][j + l].alive){
-			        			neighbors++;
-							}
-						}
-					}
-				
-				
-			}
+			
 			//Bottom Edge
-			else if(i == height && j > 0 && j < width){
-				
-					for(int k = 0; k <= 1; k++){
-	        			for(int l = -1; l <= 1; l++){
-							if(board[i + k][j + l].alive){
-			        			neighbors++;
-							}
-						}
-					}	
-			}
+			
 			//Left Edge
-			else if(j == 0 && i > 0 && i < height){
-				
-					for(int k = -1; k <= 1; k++){
-	        			for(int l = 0; l <= 1; l++){
-							if(board[i + k][j + l].alive){
-			        			neighbors++;
-							}
-						}
-					}
-				
-				
-			}
+			
 			//Right Edge
-			else if(j == width && i > 0 && i < height){
-				
-					for(int k = -1; k <= 1; k++){
-	        			for(int l = -1; l <= 0; l++){
-							if(board[i + k][j + l].alive){
-			        			neighbors++;
-							}
-						}
-					}
-				
-				
-			}
+			
 			//Corner Cases
 			//Upper Left
-			else if(i == 0 && j== 0){
-				for(int k = 0; k <= 1; k++){
-	        			for(int l = 0; l <= 1; l++){
-							if(board[i + k][j + l].alive ){
-			        			neighbors++;
-							}
-						}
-					}
-			}
+			
 			//Lower Right
-			else if(i == height && j== width){
-				for(int k = -1; k <= 0; k++){
-	        			for(int l = -1; l <= 0; l++){
-							if(board[i + k][j + l].alive ){
-			        			neighbors++;
-							}
-						}
-					}
-			}
+			
 			//Lower Left
-			else if(i == height && j== 0){
-				for(int k = -1; k <= 0; k++){
-	        			for(int l = 0; l <= 1; l++){
-							if(board[i + k][j + l].alive ){
-			        			neighbors++;
-							}
-						}
-					}
-			}
+			
 			//Upper Right
-			else if(i == 0 && j== width){
-				for(int k = 0; k <= 1; k++){
-	        			for(int l = -1; l <= 0; l++){
-							if(board[i + k][j + l].alive ){
-			        			neighbors++;
-							}
-						}
-					}
-			}
+			
 			//Board Middle
-			else if(i >= 1 && j >= 1){
+			/*else*/
+			if(i >= 1 && j >= 1){
 				//Counts a cells neighbors
 				neighbors = board[i][j].countNeighbors(board,i,j); 
 			}
